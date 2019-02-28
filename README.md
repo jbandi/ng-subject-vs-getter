@@ -1,13 +1,18 @@
-The project in `behavior-subject-blog-demo` is originally from here:  
-https://github.com/Rmcavin/behavior-subject-blog-demo
+In the post ["My favorite state management technique in Angular — RxJS Behavior Subjects"](https://medium.com/@rmcavin/my-favorite-state-management-technique-in-angular-rxjs-behavior-subjects-49f18daa31a7) the author argues for using BehaviorSubjects for simple state mangement.
 
+The author provides a [demo project on GitHub](https://github.com/Rmcavin/behavior-subject-blog-demo) that illustrates the concept.  
 It demonstrates the usage of BehaviorSubjects for state management in Angular.  
-There is a blog post for the topic here:  
-https://medium.com/@rmcavin/my-favorite-state-management-technique-in-angular-rxjs-behavior-subjects-49f18daa31a7
 
-The project `plain-change-detection` implements the same functionality in a much simpler way, relying purely on the default Angular Change detection.
+As a reference I included that original demo project in this repository in `behavior-subject-blog-demo`.
 
-**Default Angular Change Detection enables real simple state management!**
+
+
+I think there is a much simpler way for state management, relying purely on the default Angular change detection. 
+The project `plain-change-detection` implements the same functionality as the original demo project. It is less code and reduces the complexity by relying on "transparent reactivity" provided by Angular change detection.
+
+[This commit](https://github.com/jbandi/ng-subject-vs-getter/commit/f88f7bb9d3d184979c6258fd32bc1bd620406a7b) implements the change.
+
+**Default Angular change detection enables real simple state management!**
 
 State can be held on a service as the single source of truth. Components then expose this centralized state via getters.  
 The state on the service can simply be changed and with the default Angular Change Detection the changes are then reflected in the UI.
