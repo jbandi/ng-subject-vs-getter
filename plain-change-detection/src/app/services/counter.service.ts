@@ -11,25 +11,14 @@ export class CounterService {
 
   constructor() { }
 
-  private initialCount: Count = {value: 0};
-  private countTracker = new BehaviorSubject<Count>(this.initialCount);
+  currentCount: Count = {value: 0};
 
-  /** Allows subscription to the behavior subject as an observable */
-  getCount(): Observable<Count> {
-    return this.countTracker.asObservable();
-  }
-
-  /**
-   * Allows updating the current value of the behavior subject
-   * @param val a number representing the current value
-   * @param delta a number representing the positive or negative change in current value
-   */
-  setCount(val: number, delta: number): void {
-    this.countTracker.next({value: (val + delta)});
+  applyDelta(delta: number): void {
+    this.currentCount = {value: (this.currentCount.value + delta)};
   }
 
   /** Resets the count to the initial value */
   resetCount(): void {
-    this.countTracker.next(this.initialCount);
+    this.currentCount = {value: 0};
   }
 }
