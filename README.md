@@ -23,5 +23,5 @@ Introducing RxJS Subjects for signaling changes explpicitly from the service to 
 
 - With the original Subject-based solution we have not a single source of truth any more: Each instance of `output-component`and `counter-component` has its own state. These distributed states are programmatically synchronized via pub-sub of the Subject (this could somehow be avoided by using the `async` pipe in the `output-component` instead of manually subscribing).
 - Moving away from a single source of truth for state management to distributed state opens up the potential for many bugs where the states might diverge (i.e. race conditions)
-- Moving away from managing a single source of truth to the notion of message-passing between components via a service might quicky lead to a tangle web of communication paths (remember "scope-soup" of AngularJS)
-- Subscribing to Observables comes with the need of unsubscribing which is another type of state (typically managed by the component lifecycle). When you rely on Angular Change tracking the components can be pure and stateless.
+- Moving away from managing a single source of truth to the notion of message-passing between components via a service might quickly lead to a tangled web of communication paths (remember "scope-soup" of AngularJS)
+- Subscribing to Observables comes with the need of unsubscribing which is another type of state (typically managed through the component lifecycle). When you rely on Angular change detection the components can be pure and stateless.
